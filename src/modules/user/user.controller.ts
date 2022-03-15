@@ -6,13 +6,13 @@ import { User } from './entities/user.entity';
 import { UserService } from './user.service';
 
 @Controller('user')
-export class UserController { 
+export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Post('/signup')
-  async doUserRegistration( 
-    @Body(SETTINGS.VALIDATION_PIPE) 
-    userData: UserResgisterRequestDto 
+  async doUserRegistration(
+    @Body(SETTINGS.VALIDATION_PIPE)
+    userData: UserResgisterRequestDto,
   ): Promise<User> {
     return await this.userService.doUserRegistration(userData);
   }

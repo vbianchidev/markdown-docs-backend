@@ -5,6 +5,6 @@ import { UserModule } from './user/user.module';
 import { MenuModule } from './menu/menu.module';
 
 @Module({
-  imports: [PostModule, UserModule, MenuModule]
+  imports: [PostModule, UserModule, MenuModule],
 })
 export class ModulesModule {}

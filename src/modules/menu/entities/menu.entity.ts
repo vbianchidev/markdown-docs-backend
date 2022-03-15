@@ -6,7 +6,7 @@ export class Menu extends Document {
   @Prop({ required: true })
   name: string;
 
-  @Prop({default: null})
+  @Prop({ default: null })
   parent: string | null;
 
   @Prop()

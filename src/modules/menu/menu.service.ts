@@ -7,11 +7,8 @@ import { UpdateMenuDto } from './dto/update-menu.dto';
 import { Menu } from './entities/menu.entity';
 
 @Injectable()
-export class MenuService { 
-
-  constructor(
-    @InjectModel(Menu.name) private menuModel: Model<Menu>
-  ) { }
+export class MenuService {
+  constructor(@InjectModel(Menu.name) private menuModel: Model<Menu>) {}
 
   async create(menuDTO: CreateMenuDto): Promise<Menu> {
     const menu = new this.menuModel(menuDTO);
@@ -27,7 +24,7 @@ export class MenuService {
   }
 
   async findBySlug(slug: string): Promise<Menu> {
-    return await this.menuModel.findOne({ 'slug': slug }).exec();
+    return await this.menuModel.findOne({ slug: slug }).exec();
   }
 
   async update(id: string, updateMenuDto: UpdateMenuDto): Promise<Menu> {
@@ -35,7 +32,7 @@ export class MenuService {
   }
 
   async remove(id: string) {
-    const deletedMenu = this.menuModel.findOneAndDelete({ _id: id}).exec();
+    const deletedMenu = this.menuModel.findOneAndDelete({ _id: id }).exec();
     return (await deletedMenu).remove();
   }
 }

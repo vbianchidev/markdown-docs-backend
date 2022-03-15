@@ -8,10 +8,7 @@ import { Post } from './entities/post.entity';
 
 @Injectable()
 export class PostService {
-
-  constructor(
-    @InjectModel(Post.name) private postModel: Model<Post>
-  ) { }
+  constructor(@InjectModel(Post.name) private postModel: Model<Post>) {}
 
   async create(postDTO: CreatePostDto): Promise<Post> {
     const post = new this.postModel(postDTO);
@@ -27,7 +24,7 @@ export class PostService {
   }
 
   async findBySlug(slug: string): Promise<Post> {
-    return await this.postModel.findOne({ 'slug': slug }).exec();
+    return await this.postModel.findOne({ slug: slug }).exec();
   }
 
   async update(id: string, updatePostDto: UpdatePostDto): Promise<Post> {
@@ -35,7 +32,7 @@ export class PostService {
   }
 
   async remove(id: string) {
-    const deletedPost = this.postModel.findOneAndDelete({ _id: id}).exec();
+    const deletedPost = this.postModel.findOneAndDelete({ _id: id }).exec();
     return (await deletedPost).remove();
   }
 }

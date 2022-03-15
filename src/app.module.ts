@@ -5,8 +5,8 @@ import { ModulesModule } from './modules/modules.module';
 
 @Module({
   imports: [
-    ModulesModule, 
-    MongooseModule.forRoot('mongodb://localhost:27017/markdown')
+    ModulesModule,
+    MongooseModule.forRoot('mongodb://localhost:27017/markdown'),
   ],
 })
 export class AppModule {}

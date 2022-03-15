@@ -9,11 +9,11 @@ import { Menu, MenuSchema } from './entities/menu.entity';
     MongooseModule.forFeature([
       {
         name: Menu.name,
-        schema: MenuSchema
-      }
-    ])
+        schema: MenuSchema,
+      },
+    ]),
   ],
   controllers: [MenuController],
-  providers: [MenuService]
+  providers: [MenuService],
 })
 export class MenuModule {}

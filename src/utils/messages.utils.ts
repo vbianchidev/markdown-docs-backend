@@ -4,4 +4,3 @@ const PASSWORD_RULE_MESSAGE =
 export const MESSAGES = {
   PASSWORD_RULE_MESSAGE,
 };
-  

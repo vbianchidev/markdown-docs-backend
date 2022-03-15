@@ -15,20 +15,19 @@ import { UserService } from './user.service';
           const schema = UserSchema;
 
           schema.pre<User>('save', async function () {
-            const user = this;
             const salt = await bcrypt.genSalt(10);
-            const hash = await bcrypt.hash(user.password, salt);
+            const hash = await bcrypt.hash(this.password, salt);
 
-            user.salt = salt;
-            user.password = hash;
+            this.salt = salt;
+            this.password = hash;
           });
 
           return schema;
-        }
-      }
-    ])
+        },
+      },
+    ]),
   ],
   controllers: [UserController],
-  providers: [UserService]
+  providers: [UserService],
 })
 export class UserModule {}
