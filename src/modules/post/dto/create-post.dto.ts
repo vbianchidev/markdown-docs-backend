@@ -1,5 +1,9 @@
+import { IsNotEmpty } from "class-validator";
+
 export class CreatePostDto {
+  @IsNotEmpty()
   title: string;
-  descpription: string;
+
+  @IsNotEmpty()
   markdown: string;
 }
