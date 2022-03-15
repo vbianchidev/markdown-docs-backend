@@ -24,7 +24,7 @@ export class PostController {
 
   @Get('find/:slug')
   async findBySlug(@Param('slug') slug: string) {
-    return await this.postService.findBySlug(slug);
+    return await this.postService.findBySlug(slug.toLowerCase());
   }
 
   @Patch(':id')

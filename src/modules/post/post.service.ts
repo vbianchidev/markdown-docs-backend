@@ -16,10 +16,7 @@ export class PostService {
   ) { }
 
   async create(postDTO: CreatePostDto): Promise<Post> {
-    const post = new this.postModel();
-    post.title = postDTO.title;
-    post.slug = slugify(postDTO.title);
-    post.markdown = postDTO.markdown;
+    const post = new this.postModel(postDTO);
     return await post.save();
   }
 
