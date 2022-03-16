@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+
 import { CreateMenuDto } from './dto/create-menu.dto';
 import { UpdateMenuDto } from './dto/update-menu.dto';
-
 import { Menu } from './entities/menu.entity';
 
 @Injectable()
@@ -21,10 +21,6 @@ export class MenuService {
 
   async findOne(id: string): Promise<Menu> {
     return await this.menuModel.findById(id);
-  }
-
-  async findBySlug(slug: string): Promise<Menu> {
-    return await this.menuModel.findOne({ slug: slug }).exec();
   }
 
   async update(id: string, updateMenuDto: UpdateMenuDto): Promise<Menu> {
