@@ -14,7 +14,6 @@ import { PostService } from './post.service';
         name: Post.name,
         useFactory: () => {
           const schema = PostSchema;
-
           schema.pre<Post>('save', async function () {
             this.slug = slugify(this.title, {
               lower: true,
