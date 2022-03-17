@@ -8,4 +8,6 @@ export class CreateMenuDto {
 
   @IsNotEmpty()
   pageId: string;
+
+  matIcon: string;
 }

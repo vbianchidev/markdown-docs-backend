@@ -11,6 +11,9 @@ export class Menu extends Document {
 
   @Prop()
   pageId: string;
+
+  @Prop()
+  matIcon: string;
 }
 
 export const MenuSchema = SchemaFactory.createForClass(Menu);
