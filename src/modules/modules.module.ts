@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
+import { PageModule } from './page/page.module';
 
-import { PostModule } from './post/page.module';
+
 import { UserModule } from './user/user.module';
 
 @Module({
-  imports: [PostModule, UserModule],
+  imports: [PageModule, UserModule],
 })
 export class ModulesModule {}

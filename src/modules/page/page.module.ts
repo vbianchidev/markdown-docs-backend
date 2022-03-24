@@ -29,4 +29,4 @@ import { PageService } from './page.service';
   controllers: [PageController],
   providers: [PageService],
 })
-export class PostModule {}
+export class PageModule {}

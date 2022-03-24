@@ -13,35 +13,35 @@ import { UpdatePageDto } from './dto/update-page.dto';
 
 @Controller('page')
 export class PageController {
-  constructor(private readonly pageService: PageService) {}
+  constructor(private readonly _service: PageService) {}
 
   @Post()
   async create(@Body() createPagetDto: CreatePageDto) {
-    return await this.pageService.create(createPagetDto);
+    return await this._service.create(createPagetDto);
   }
 
   @Get()
   async findAll() {
-    return await this.pageService.findAll();
+    return await this._service.getAll();
   }
 
   @Get(':id')
   async findOne(@Param('id') id: string) {
-    return await this.pageService.findOne(id);
+    return await this._service.getOne(id);
   }
 
   @Get('find/:slug')
   async findBySlug(@Param('slug') slug: string) {
-    return await this.pageService.findBySlug(slug.toLowerCase());
+    return await this._service.findBySlug(slug.toLowerCase());
   }
 
   @Patch(':id')
   async update(@Param('id') id: string, @Body() updatePageDto: UpdatePageDto) {
-    return await this.pageService.update(id, updatePageDto);
+    return await this._service.update(id, updatePageDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.pageService.remove(id);
+    return this._service.remove(id);
   }
 }
