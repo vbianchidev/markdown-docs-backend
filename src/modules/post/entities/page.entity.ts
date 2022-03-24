@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
 @Schema({ timestamps: true })
-export class Post extends Document {
+export class Page extends Document {
   @Prop()
   title: string;
 
@@ -13,4 +13,4 @@ export class Post extends Document {
   markdown: string;
 }
 
-export const PostSchema = SchemaFactory.createForClass(Post);
+export const PageSchema = SchemaFactory.createForClass(Page);

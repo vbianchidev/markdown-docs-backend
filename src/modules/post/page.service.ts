@@ -2,32 +2,32 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
-import { CreatePostDto } from './dto/create-post.dto';
-import { UpdatePostDto } from './dto/update-post.dto';
-import { Post } from './entities/post.entity';
+import { CreatePageDto } from './dto/create-page.dto';
+import { UpdatePageDto } from './dto/update-page.dto';
+import { Page } from './entities/page.entity';
 
 @Injectable()
-export class PostService {
-  constructor(@InjectModel(Post.name) private postModel: Model<Post>) {}
+export class PageService {
+  constructor(@InjectModel(Page.name) private postModel: Model<Page>) {}
 
-  async create(postDTO: CreatePostDto): Promise<Post> {
+  async create(postDTO: CreatePageDto): Promise<Page> {
     const post = new this.postModel(postDTO);
     return await post.save();
   }
 
-  async findAll(): Promise<Post[]> {
+  async findAll(): Promise<Page[]> {
     return await this.postModel.find().exec();
   }
 
-  async findOne(id: string): Promise<Post> {
+  async findOne(id: string): Promise<Page> {
     return await this.postModel.findById(id);
   }
 
-  async findBySlug(slug: string): Promise<Post> {
+  async findBySlug(slug: string): Promise<Page> {
     return await this.postModel.findOne({ slug: slug }).exec();
   }
 
-  async update(id: string, updatePostDto: UpdatePostDto): Promise<Post> {
+  async update(id: string, updatePostDto: UpdatePageDto): Promise<Page> {
     return await this.postModel.findByIdAndUpdate(id, updatePostDto).exec();
   }
 

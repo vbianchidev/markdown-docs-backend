@@ -3,18 +3,18 @@ import { MongooseModule } from '@nestjs/mongoose';
 import slugify from 'slugify';
 import { REGEX } from 'src/utils/regex.utils';
 
-import { Post, PostSchema } from './entities/post.entity';
-import { PostController } from './post.controller';
-import { PostService } from './post.service';
+import { Page, PageSchema } from './entities/page.entity';
+import { PageController } from './page.controller';
+import { PageService } from './page.service';
 
 @Module({
   imports: [
     MongooseModule.forFeatureAsync([
       {
-        name: Post.name,
+        name: Page.name,
         useFactory: () => {
-          const schema = PostSchema;
-          schema.pre<Post>('save', async function () {
+          const schema = PageSchema;
+          schema.pre<Page>('save', async function () {
             this.slug = slugify(this.title, {
               lower: true,
               remove: REGEX.SLUG_RULE,
@@ -26,7 +26,7 @@ import { PostService } from './post.service';
       },
     ]),
   ],
-  controllers: [PostController],
-  providers: [PostService],
+  controllers: [PageController],
+  providers: [PageService],
 })
 export class PostModule {}
