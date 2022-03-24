@@ -18,12 +18,12 @@ export class Page extends Document {
 
   @Prop()
   content: string;
-  
+
   @Prop({ type: SchemaTypes.ObjectId, ref: Page.name })
-  pages: Array<string> | Array<Types.ObjectId> | null ;
+  pages: Array<string> | Array<Types.ObjectId> | null;
 
   @Prop({ type: SchemaTypes.ObjectId, ref: User.name })
-  author:  string | Types.ObjectId;
+  author: string | Types.ObjectId;
 
   @Prop({ type: SchemaTypes.ObjectId, ref: Page.name })
   parentPage: string | Types.ObjectId | null;

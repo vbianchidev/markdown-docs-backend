@@ -6,12 +6,9 @@ import { MongoGenericRepository } from 'src/base/mongo.generic.repository';
 import { CreatePageDto } from './dto/create-page.dto';
 import { Page } from './entities/page.entity';
 
-
 @Injectable()
 export class PageService extends MongoGenericRepository<CreatePageDto> {
-  constructor(
-    @InjectModel(Page.name) private _model: Model<Page>
-  ) {
+  constructor(@InjectModel(Page.name) private _model: Model<Page>) {
     super(_model);
   }
 

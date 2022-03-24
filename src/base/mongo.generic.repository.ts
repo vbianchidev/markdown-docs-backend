@@ -4,7 +4,7 @@ import { IGenericRepository } from './imongo.generic.repository';
 export class MongoGenericRepository<T> implements IGenericRepository<T> {
   private _repository: Model<T>;
 
-  constructor(repository: Model<T> ) {
+  constructor(repository: Model<T>) {
     this._repository = repository;
   }
 

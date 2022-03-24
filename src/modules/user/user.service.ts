@@ -8,9 +8,7 @@ import { User } from './entities/user.entity';
 
 @Injectable()
 export class UserService extends MongoGenericRepository<CreateUserDto> {
-  constructor(
-    @InjectModel(User.name) private _model: Model<User>
-  ) {
+  constructor(@InjectModel(User.name) private _model: Model<User>) {
     super(_model);
   }
 }

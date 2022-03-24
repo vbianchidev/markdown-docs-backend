@@ -1,5 +1,5 @@
 import { IsNotEmpty } from 'class-validator';
-import { SchemaTypes, Types, Document } from 'mongoose';
+import { Types } from 'mongoose';
 
 export class CreatePageDto {
   icon: string | null;
@@ -11,7 +11,7 @@ export class CreatePageDto {
   @IsNotEmpty()
   content: string;
 
-  pages: Array<string> | Array<Types.ObjectId> | null ;
-  author:  string | Types.ObjectId;
+  pages: Array<string> | Array<Types.ObjectId> | null;
+  author: string | Types.ObjectId;
   parentPage: string | Types.ObjectId | null;
 }
