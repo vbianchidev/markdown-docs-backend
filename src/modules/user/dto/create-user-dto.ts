@@ -2,7 +2,7 @@ import { IsEmail, IsNotEmpty, Length, Matches } from 'class-validator';
 import { MESSAGES } from 'src/utils/messages.utils';
 import { REGEX } from 'src/utils/regex.utils';
 
-export class UserResgisterRequestDto {
+export class CreateUserDto{
   @IsNotEmpty()
   name: string;
 
