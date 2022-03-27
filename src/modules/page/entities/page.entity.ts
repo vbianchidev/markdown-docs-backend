@@ -4,11 +4,11 @@ import { User } from 'src/modules/user/entities/user.entity';
 
 @Schema({ timestamps: true })
 export class Page extends Document {
-  @Prop()
-  icon: string | null;
+  @Prop({ default: "book"})
+  icon: string;
 
-  @Prop()
-  cover: string | null;
+  @Prop({ default: "fffff"})
+  cover: string;
 
   @Prop()
   title: string;
